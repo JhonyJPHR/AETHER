@@ -1,11 +1,12 @@
-# victim-app/main.py
 import logging
-import random
+import sys
 from fastapi import FastAPI, HTTPException
 
-# Configuração de Logs (Isso é vital para o Aether funcionar)
+# O limite de recursão foi removido/restaurado para o padrão, 
+# pois a lógica foi corrigida para não estourar a pilha.
+
 logging.basicConfig(
-    filename='../shared_logs/app.log', # Escreve na pasta compartilhada
+    filename='../shared_logs/app.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -14,30 +15,41 @@ app = FastAPI(title="ChaosBank API - Target System")
 
 @app.get("/")
 def read_root():
-    logging.info("Acesso à raiz do sistema. Status: Normal.")
     return {"status": "active", "system": "ChaosBank"}
 
-@app.get("/process-payment/{amount}")
-def process_payment(amount: int):
+# --- LÓGICA CORRIGIDA ---
+def calculate_compound_interest(amount: float, periods: int = 12) -> float:
     """
-    Simula um processamento de pagamento.
-    ATENÇÃO: Este código contém um BUG INTENCIONAL para o Aether detectar.
+    Função Corrigida: Implementa recursão com caso base (limite de profundidade).
+    Calcula o valor futuro com juros de 1% por período.
+    
+    Args:
+        amount: Valor atual.
+        periods: Número de períodos restantes (condição de parada).
     """
-    logging.info(f"Iniciando processamento de pagamento: ${amount}")
+    logging.info(f"Calculando juros. Períodos restantes: {periods}, Valor: {amount:.2f}")
+    
+    # 1. CASO BASE: Se os períodos acabaram, retorna o valor acumulado.
+    if periods <= 0:
+        return amount
+    
+    # 2. PASSO RECURSIVO: Calcula o próximo valor e decrementa o contador de períodos.
+    # Correção Lógica: Retornamos o resultado da próxima chamada, não a soma (amount + ...),
+    # para refletir corretamente o cálculo de juros compostos (Valor Final).
+    return calculate_compound_interest(amount * 1.01, periods - 1)
+
+@app.get("/investment/{amount}")
+def simulate_investment(amount: float):
+    logging.info(f"Iniciando simulação de investimento: ${amount}")
     
     try:
-        # Lógica falha: Se o valor for maior que 1000, gera um erro aleatório
-        # simulando uma falha de memória ou lógica de negócios
-        if amount > 1000:
-            # Risco Crítico: Divisão por Zero escondida em uma lógica complexa
-            risk_factor = random.choice([0, 1, 2])
-            result = amount / (risk_factor if risk_factor != 0 else 1) # Aether Fix: Prevented Division by Zero # <--- O BUG ESTÁ AQUI (Se risk_factor for 0)
-            
-        logging.info(f"Pagamento processado com sucesso: ${amount}")
-        return {"status": "success", "amount": amount}
+        # Define um limite seguro de iterações (ex: 12 meses)
+        final_value = calculate_compound_interest(amount, periods=12)
+        
+        return {"original": amount, "final": round(final_value, 2)}
 
     except Exception as e:
-        # O sistema registra o erro fatal
-        error_msg = f"CRITICAL_FAILURE: {str(e)} in process_payment"
-        logging.error(error_msg) # O Aether vai ler esta linha!
+        # Captura genérica para outros erros imprevistos
+        error_msg = f"CRITICAL_FAILURE: {str(e)}"
+        logging.error(error_msg)
         raise HTTPException(status_code=500, detail="Internal Server Error")

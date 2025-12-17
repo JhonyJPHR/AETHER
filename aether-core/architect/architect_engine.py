@@ -1,96 +1,102 @@
 # aether-core/architect/architect_engine.py
 import os
-import json
-from openai import OpenAI
-from colorama import Fore, Style
+import google.generativeai as genai
+from colorama import Fore
+from dotenv import load_dotenv
+import glob
 
-# Tenta carregar a API Key
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    AI_AVAILABLE = True
-except:
-    AI_AVAILABLE = False
+load_dotenv()
 
 class Architect:
     def __init__(self):
-        print(f"{Fore.CYAN}[ARCHITECT] Módulo de Diagnóstico Inteligente carregado.")
+        self.api_key = os.getenv("GEMINI_API_KEY")
+        self.ai_available = False
+        if self.api_key:
+            genai.configure(api_key=self.api_key)
+            self.model = genai.GenerativeModel('gemini-3-pro-preview')
+            self.ai_available = True
+            print(f"{Fore.CYAN}[ARCHITECT] 🧠 Gemini Pro: Modo Multi-Contexto Ativado.")
 
-    def diagnose_and_fix(self, error_log, file_path):
+    def get_project_context(self, victim_path):
         """
-        Lê o arquivo defeituoso e solicita uma correção à IA.
+        Lê TODOS os arquivos Python do diretório alvo para entender dependências.
+        Isso é crucial para sistemas complexos.
         """
-        print(f"{Fore.YELLOW}[ARCHITECT] 🔍 Analisando código fonte em: {file_path}")
+        folder = os.path.dirname(victim_path)
+        context = ""
+        # Pega todos os .py da pasta
+        files = glob.glob(os.path.join(folder, "*.py"))
         
-        # 1. Ler o código "doente" (CORREÇÃO APLICADA AQUI: encoding='utf-8')
+        for file in files:
+            try:
+                with open(file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    filename = os.path.basename(file)
+                    context += f"\n--- ARQUIVO: {filename} ---\n{content}\n"
+            except:
+                pass
+        return context
+
+    def diagnose_and_fix(self, error_log, file_path, previous_attempt=None):
+        print(f"{Fore.YELLOW}[ARCHITECT] 🔍 Escaneando contexto global do projeto...")
+        
+        # 1. Obter o código de TODO o projeto, não só do arquivo quebrado
+        project_context = self.get_project_context(file_path)
+        
+        # 2. Ler o arquivo específico do erro para referência
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                source_code = f.read()
-        except FileNotFoundError:
-            print(f"{Fore.RED}[ERRO] Arquivo fonte não encontrado!")
-            return None
-        except Exception as e:
-            print(f"{Fore.RED}[ERRO LEITURA] Não foi possível ler o arquivo: {e}")
+                target_code = f.read()
+        except:
             return None
 
-        # 2. Montar o Prompt para a IA
+        # 3. Prompt de Engenharia de Sistemas Críticos
+        extra_instruction = ""
+        if previous_attempt:
+            extra_instruction = f"""
+            ATENÇÃO: VOCÊ JÁ TENTOU CORRIGIR ISSO E FALHOU.
+            SUA TENTATIVA ANTERIOR CAUSOU ESTE NOVO ERRO:
+            "{previous_attempt}"
+            NÃO COMETA O MESMO ERRO. ANALISE PROFUNDAMENTE.
+            """
+
         prompt = f"""
-        Você é o AETHER ARCHITECT, uma IA especialista em corrigir bugs críticos em tempo real.
+        Você é uma IA de Recuperação de Desastres para Sistemas Críticos (Nível NASA).
         
-        CONTEXTO:
-        O seguinte código Python gerou um erro crítico em produção.
+        CONTEXTO DO PROJETO (Outros arquivos para entender dependências):
+        {project_context}
         
-        ERRO DETECTADO:
-        {error_log}
-        
-        CÓDIGO FONTE ORIGINAL:
+        ARQUIVO ALVO (Onde o erro explodiu):
         ```python
-        {source_code}
+        {target_code}
         ```
         
-        SUA MISSÃO:
-        1. Identifique a causa raiz lógica do erro (ex: divisão por zero, null pointer).
-        2. Reescreva o código corrigindo o problema.
-        3. Retorne APENAS o código Python corrigido. Nada de explicações.
-        """
-
-        print(f"{Fore.YELLOW}[ARCHITECT] 🧠 Consultando Núcleo de IA para solução...")
-
-        # 3. Chamar a IA (Ou simular se não tiver chave)
-        if AI_AVAILABLE and os.getenv("OPENAI_API_KEY"):
-            try:
-                response = client.chat.completions.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system", "content": "Você é uma IA de auto-correção de código. Retorne apenas código limpo."},
-                        {"role": "user", "content": prompt}
-                    ]
-                )
-                fixed_code = response.choices[0].message.content
-                print(f"{Fore.GREEN}[ARCHITECT] 💡 Solução gerada pela IA com sucesso!")
-                
-                # Limpeza básica do markdown
-                fixed_code = fixed_code.replace("```python", "").replace("```", "")
-                return fixed_code
-                
-            except Exception as e:
-                print(f"{Fore.RED}[ERRO AI] Falha na conexão: {e}")
-                return self._simulation_mode(source_code)
-        else:
-            print(f"{Fore.MAGENTA}[ARCHITECT] ⚠️ Modo Simulação Ativo (Sem API Key)")
-            return self._simulation_mode(source_code)
-
-    def _simulation_mode(self, source_code):
-        """
-        Modo de fallback para demonstração sem internet/API.
-        """
-        print(f"{Fore.MAGENTA}[SIMULATION] Aplicando patch pré-definido para 'ZeroDivisionError'...")
+        ERRO CRÍTICO REPORTADO:
+        "{error_log}"
         
-        if "amount / risk_factor" in source_code:
-            fixed_code = source_code.replace(
-                "result = amount / risk_factor", 
-                "result = amount / (risk_factor if risk_factor != 0 else 1) # Aether Fix: Prevented Division by Zero"
-            )
-            return fixed_code
-        return source_code
+        {extra_instruction}
+        
+        MISSÃO:
+        1. Analise a interação entre os arquivos. O erro pode ser uma dependência mal injetada ou lógica cruzada.
+        2. Reescreva o ARQUIVO ALVO inteiro corrigindo a falha.
+        3. Seja defensivo: Adicione validações extras.
+        4. Retorne APENAS o código Python do ARQUIVO ALVO.
+        """
+
+        print(f"{Fore.YELLOW}[ARCHITECT] 🧠 Processando lógica complexa no Gemini...")
+
+        if self.ai_available:
+            try:
+                response = self.model.generate_content(prompt)
+                fixed_code = response.text
+                if "```python" in fixed_code:
+                    fixed_code = fixed_code.split("```python")[1].split("```")[0]
+                elif "```" in fixed_code:
+                    fixed_code = fixed_code.replace("```", "")
+                
+                print(f"{Fore.GREEN}[ARCHITECT] 💡 Solução arquitetural gerada.")
+                return fixed_code.strip()
+            except Exception as e:
+                print(f"{Fore.RED}[ERRO AI] {e}")
+                return None
+        return None
