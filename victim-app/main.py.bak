@@ -1,0 +1,43 @@
+# victim-app/main.py
+import logging
+import random
+from fastapi import FastAPI, HTTPException
+
+# Configuração de Logs (Isso é vital para o Aether funcionar)
+logging.basicConfig(
+    filename='../shared_logs/app.log', # Escreve na pasta compartilhada
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+app = FastAPI(title="ChaosBank API - Target System")
+
+@app.get("/")
+def read_root():
+    logging.info("Acesso à raiz do sistema. Status: Normal.")
+    return {"status": "active", "system": "ChaosBank"}
+
+@app.get("/process-payment/{amount}")
+def process_payment(amount: int):
+    """
+    Simula um processamento de pagamento.
+    ATENÇÃO: Este código contém um BUG INTENCIONAL para o Aether detectar.
+    """
+    logging.info(f"Iniciando processamento de pagamento: ${amount}")
+    
+    try:
+        # Lógica falha: Se o valor for maior que 1000, gera um erro aleatório
+        # simulando uma falha de memória ou lógica de negócios
+        if amount > 1000:
+            # Risco Crítico: Divisão por Zero escondida em uma lógica complexa
+            risk_factor = random.choice([0, 1, 2])
+            result = amount / risk_factor # <--- O BUG ESTÁ AQUI (Se risk_factor for 0)
+            
+        logging.info(f"Pagamento processado com sucesso: ${amount}")
+        return {"status": "success", "amount": amount}
+
+    except Exception as e:
+        # O sistema registra o erro fatal
+        error_msg = f"CRITICAL_FAILURE: {str(e)} in process_payment"
+        logging.error(error_msg) # O Aether vai ler esta linha!
+        raise HTTPException(status_code=500, detail="Internal Server Error")

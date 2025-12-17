@@ -1,0 +1,174 @@
+2025-12-17 17:24:11,633 - INFO - Iniciando processamento de pagamento: $500
+2025-12-17 17:24:11,635 - INFO - Pagamento processado com sucesso: $500
+2025-12-17 17:24:23,573 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:23,573 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:29,857 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:29,857 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:30,069 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:30,069 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:30,245 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:30,245 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:30,358 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:30,358 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:30,565 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:30,565 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:24:30,742 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:30,742 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:31,776 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:31,776 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:31,960 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:31,960 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:32,147 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:32,147 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:32,314 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:32,314 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:32,489 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:32,489 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:24:32,644 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:32,644 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:24:32,823 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:24:32,823 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:30:58,767 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:30:58,767 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:01,380 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:01,380 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:04,279 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:04,279 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:05,143 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:05,144 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:05,959 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:05,959 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:06,376 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:06,376 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:06,597 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:06,597 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:06,803 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:06,803 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:07,163 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:07,163 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:07,336 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:07,336 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:07,509 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:07,509 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:07,701 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:07,701 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:07,876 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:07,876 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:08,051 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:08,052 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:08,192 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:08,192 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:09,657 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:09,657 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:09,849 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:09,849 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:10,048 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:10,049 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:10,259 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:10,259 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:10,465 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:10,465 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:10,934 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:10,934 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:12,084 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:12,084 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:13,126 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:13,126 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:14,231 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:14,232 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:15,363 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:15,363 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:16,515 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:16,515 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:31:17,626 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:17,627 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:18,693 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:18,693 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:19,709 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:19,709 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:31:20,795 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:31:20,795 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:41:05,336 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:41:05,336 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:41:06,441 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:41:06,441 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:41:07,059 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:41:07,059 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:41:07,449 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:41:07,449 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:43:14,902 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:43:14,903 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:43:16,290 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:43:16,290 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:43:16,906 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:43:16,906 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:48:03,825 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:48:03,825 - ERROR - CRITICAL_FAILURE: division by zero in process_payment
+2025-12-17 17:49:04,206 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:04,207 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:05,172 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:05,172 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:06,044 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:06,045 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:06,555 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:06,555 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:06,939 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:06,939 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:07,152 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:07,152 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:08,084 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:08,084 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:08,297 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:08,297 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:08,509 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:08,509 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:09,638 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:09,639 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:09,867 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:09,867 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:10,048 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:10,048 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:10,231 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:10,231 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:11,190 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:11,190 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:11,343 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:11,344 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:11,538 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:11,538 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:11,724 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:11,724 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:11,914 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:11,914 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:12,108 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:12,109 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:12,282 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:12,282 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:12,472 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:12,473 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:12,664 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:12,665 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:12,859 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:12,859 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:13,065 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:13,065 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:13,243 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:13,243 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:13,436 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:13,436 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:13,644 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:13,644 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:13,831 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:13,831 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,025 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,025 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,223 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,223 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,436 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,436 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,581 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,582 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,793 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,793 - INFO - Pagamento processado com sucesso: $2000
+2025-12-17 17:49:14,968 - INFO - Iniciando processamento de pagamento: $2000
+2025-12-17 17:49:14,968 - INFO - Pagamento processado com sucesso: $2000
